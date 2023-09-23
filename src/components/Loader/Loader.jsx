@@ -1,18 +1,18 @@
-// import { RotatingLines } from 'react-loader-spinner';
-// import { SpinnerLoad } from './Loader.styled';
+import { RotatingLines } from 'react-loader-spinner';
+import { SpinnerLoad } from './Loader.styled';
 
-// function Loader() {
-//     return (
-//         <SpinnerLoad>
-//             <RotatingLines
-//                 strokeColor="grey"
-//                 strokeWidth="5"
-//                 animationDuration="0.75"
-//                 width="96"
-//                 visible={true}
-//             />
-//         </SpinnerLoad>
-//     );
-// }
+function Loader() {
+    return (
+        <SpinnerLoad>
+            <RotatingLines
+                strokeColor="#3f51b5"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="96"
+                visible={true}
+            />
+        </SpinnerLoad>
+    );
+}
 
-// export default Loader;
+export default Loader;

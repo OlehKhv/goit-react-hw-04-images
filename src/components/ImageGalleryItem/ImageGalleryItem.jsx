@@ -1,35 +1,29 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import { GalleryItem, GalleryItemImg } from './ImageGalleryItem.styled';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { GalleryItem, GalleryItemImg } from './ImageGalleryItem.styled';
+import Modal from './../Modal/Modal';
 
-// const ImageGalleryItem = ({
-//     largeImg,
-//     smallImg,
-//     alt,
-//     getImgUrl,
-//     toggleModal,
-// }) => {
-//     const onClick = () => {
-//         getImgUrl(largeImg);
-//         toggleModal();
-//     };
-//     return (
-//         <GalleryItem onClick={onClick}>
-//             <GalleryItemImg src={smallImg} alt={alt} />
-//         </GalleryItem>
-//     );
-// };
+export const ImageGalleryItem = ({ smallImg, largeImg, alt }) => {
+    const [isShowModal, setIsShowModal] = useState(false);
 
-// ImageGalleryItem.propTypes = {
-//     toggleModal: PropTypes.func.isRequired,
-//     getImgUrl: PropTypes.func.isRequired,
-//     smallImg: PropTypes.string.isRequired,
-//     largeImg: PropTypes.string.isRequired,
-//     alt: PropTypes.string.isRequired,
-// };
+    const toggleModal = () => {
+        setIsShowModal(prev => !prev);
+    };
 
-// export default ImageGalleryItem;
+    return (
+        <GalleryItem onClick={toggleModal}>
+            <GalleryItemImg src={smallImg} alt={alt} />
+            {isShowModal && (
+                <Modal imgUrl={largeImg} alt={alt} toggleModal={toggleModal} />
+            )}
+        </GalleryItem>
+    );
+};
 
-// toggleModal = () => {
-//         this.setState(prev => ({ isShowModal: !prev.isShowModal }));
-//     };
+ImageGalleryItem.propTypes = {
+    smallImg: PropTypes.string.isRequired,
+    largeImg: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+};
+
+export default ImageGalleryItem;

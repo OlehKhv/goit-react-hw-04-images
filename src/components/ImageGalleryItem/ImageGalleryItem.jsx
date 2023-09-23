@@ -11,13 +11,25 @@ export const ImageGalleryItem = ({ smallImg, largeImg, alt }) => {
     };
 
     return (
-        <GalleryItem onClick={toggleModal}>
-            <GalleryItemImg src={smallImg} alt={alt} />
+        <>
+            <GalleryItem onClick={toggleModal}>
+                <GalleryItemImg src={smallImg} alt={alt} />
+            </GalleryItem>
+
             {isShowModal && (
                 <Modal imgUrl={largeImg} alt={alt} toggleModal={toggleModal} />
             )}
-        </GalleryItem>
+        </>
     );
+
+    // return (
+    //     <GalleryItem onClick={toggleModal}>
+    //         <GalleryItemImg src={smallImg} alt={alt} />
+    //         {isShowModal && (
+    //             <Modal imgUrl={largeImg} alt={alt} toggleModal={toggleModal} />
+    //         )}
+    //     </GalleryItem>
+    // );
 };
 
 ImageGalleryItem.propTypes = {

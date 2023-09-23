@@ -18,7 +18,7 @@ const Modal = ({ imgUrl, alt, toggleModal }) => {
     }, [toggleModal]);
 
     return (
-        <Overlay>
+        <Overlay onClick={toggleModal}>
             <Popup onClick={onClick}>
                 <img src={imgUrl} alt={alt} onClick={onClick} />
             </Popup>
